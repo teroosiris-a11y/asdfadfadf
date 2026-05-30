@@ -82,9 +82,8 @@ public class NavegacionController {
     }
 
     @GetMapping("/politica-cookies")
-    public String politicaCookies(Model model) {
-        cargarPaginaPublica(model, "Política de cookies", "🍪", "Información provisional sobre el uso de cookies y tecnologías similares en el sitio.");
-        return "pagina_publica";
+    public String politicaCookies() {
+        return "politica_cookies";
     }
 
     @GetMapping("/politica-privacidad")
