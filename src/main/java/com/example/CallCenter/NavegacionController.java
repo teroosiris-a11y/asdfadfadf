@@ -81,6 +81,30 @@ public class NavegacionController {
         return "pagina_publica";
     }
 
+    @GetMapping("/politica-cookies")
+    public String politicaCookies(Model model) {
+        cargarPaginaPublica(model, "Política de cookies", "🍪", "Información provisional sobre el uso de cookies y tecnologías similares en el sitio.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/politica-privacidad")
+    public String politicaPrivacidad(Model model) {
+        cargarPaginaPublica(model, "Política de Privacidad", "🔒", "Información provisional sobre el tratamiento y protección de datos de nuestros visitantes.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/aviso-legal")
+    public String avisoLegal(Model model) {
+        cargarPaginaPublica(model, "Aviso Legal", "⚖️", "Información provisional sobre las condiciones legales y responsabilidades del portal.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/quienes-somos")
+    public String quienesSomos(Model model) {
+        cargarPaginaPublica(model, "Quienes somos", "👥", "Próximamente compartiremos más información sobre el funcionamiento de la página y nuestro propósito.");
+        return "pagina_publica";
+    }
+
     private void cargarPaginaPublica(Model model, String titulo, String icono, String descripcion) {
         model.addAttribute("titulo", titulo);
         model.addAttribute("icono", icono);
