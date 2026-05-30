@@ -801,6 +801,15 @@ button i{
   color:var(--color-primario);
   font-weight:bold;
 }
+.legal-link{
+  color:var(--color-primario);
+  font-weight:bold;
+  overflow-wrap:anywhere;
+}
+.legal-link:hover,
+.legal-link:focus{
+  color:var(--color-acento);
+}
 
 @media (max-width: 760px){
   .legal-header{
