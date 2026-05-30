@@ -92,15 +92,13 @@ public class NavegacionController {
     }
 
     @GetMapping("/aviso-legal")
-    public String avisoLegal(Model model) {
-        cargarPaginaPublica(model, "Aviso Legal", "⚖️", "Información provisional sobre las condiciones legales y responsabilidades del portal.");
-        return "pagina_publica";
+    public String avisoLegal() {
+        return "aviso_legal";
     }
 
     @GetMapping("/quienes-somos")
-    public String quienesSomos(Model model) {
-        cargarPaginaPublica(model, "Quienes somos", "👥", "Próximamente compartiremos más información sobre el funcionamiento de la página y nuestro propósito.");
-        return "pagina_publica";
+    public String quienesSomos() {
+        return "quienes_somos";
     }
 
     private void cargarPaginaPublica(Model model, String titulo, String icono, String descripcion) {
