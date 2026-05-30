@@ -4,34 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Editar Empresa</title>
+  <title>Editar Empresa | Sistema Call Center</title>
   <link rel="stylesheet" href="/CallCenter.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<div class="container">
-  <section class="section">
-    <article class="card">
-      <h2>Editar empresa</h2>
-      <form action="/empresa/actualizar" method="post">
-        <input type="hidden" name="id" value="${empresa.id}">
-        <label>Nombre</label>
-        <input type="text" name="nombre" value="${empresa.nombre}" required>
-        <label>Teléfono</label>
-        <input type="text" name="telefono" value="${empresa.telefono}" required>
-        <label>Correo</label>
-        <input type="email" name="correo" value="${empresa.correo}" required>
-        <label>Estado</label>
-        <select name="estado" required>
-          <option value="activo" ${empresa.estado == 'activo' ? 'selected' : ''}>Activo</option>
-          <option value="suspendido" ${empresa.estado == 'suspendido' ? 'selected' : ''}>Suspendido</option>
-        </select>
-        <div class="actions" style="margin-top:16px;">
-          <button type="submit">Guardar cambios</button>
-          <a class="button secondary" href="/empresas">Cancelar</a>
-        </div>
-      </form>
-    </article>
-  </section>
-</div>
+<%@ include file="fragments/nav_privado.jsp" %>
+<div class="footer">Sistema de Call Center</div>
 </body>
 </html>
