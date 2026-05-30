@@ -10,6 +10,6 @@
 </head>
 <body>
 <%@ include file="fragments/nav_publico.jsp" %>
-<div class="footer">Sistema de Call Center</div>
+<%@ include file="fragments/footer_publico.jsp" %>
 </body>
 </html>

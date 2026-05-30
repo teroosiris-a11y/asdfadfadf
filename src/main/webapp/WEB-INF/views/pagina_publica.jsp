@@ -24,6 +24,6 @@
   </section>
 </main>
 
-<div class="footer">Sistema de Call Center</div>
+<%@ include file="fragments/footer_publico.jsp" %>
 </body>
 </html>
