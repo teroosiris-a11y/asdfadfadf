@@ -701,3 +701,119 @@ button i{
     grid-template-columns:1fr;
   }
 }
+
+.legal-content{
+  max-width:1040px;
+}
+.legal-card{
+  background-color:var(--color-fondo);
+  border:1px solid var(--color-borde);
+  border-radius:var(--radio);
+  box-shadow:0 14px 35px rgba(9, 38, 56, .12);
+  overflow:hidden;
+}
+.legal-header{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  padding:28px;
+  background:linear-gradient(135deg, #f8fbff 0%, #eef6f8 100%);
+  border-bottom:1px solid var(--color-borde);
+}
+.legal-icon{
+  flex:0 0 auto;
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background-color:#fff7ed;
+  border:1px solid #fed7aa;
+  font-size:28px;
+}
+.legal-header h1{
+  margin:0 0 12px 0;
+  color:var(--color-secundario);
+  font-size:34px;
+}
+.legal-header p,
+.legal-section p,
+.legal-list{
+  line-height:1.7;
+}
+.legal-header p{
+  margin:0;
+}
+.legal-section{
+  padding:24px 28px;
+  border-bottom:1px solid #e5e7eb;
+}
+.legal-section:last-child{
+  border-bottom:0;
+}
+.legal-section h2{
+  margin:0 0 12px 0;
+  color:var(--color-primario);
+  font-size:24px;
+}
+.legal-section p{
+  margin:0 0 12px 0;
+}
+.legal-section p:last-child{
+  margin-bottom:0;
+}
+.legal-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:14px;
+  margin-top:16px;
+}
+.legal-info-box{
+  padding:16px;
+  border:1px solid var(--color-borde);
+  border-radius:var(--radio);
+  background-color:#f8f9fa;
+}
+.legal-info-box h3{
+  margin:0 0 8px 0;
+  color:var(--color-secundario);
+  font-size:18px;
+}
+.legal-info-box p{
+  margin:0;
+}
+.legal-list{
+  margin:0 0 12px 20px;
+  padding:0;
+}
+.legal-list li{
+  margin-bottom:8px;
+}
+.legal-contact{
+  background-color:#f8fbff;
+}
+.legal-email{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  background-color:#eef6f8;
+  color:var(--color-primario);
+  font-weight:bold;
+}
+
+@media (max-width: 760px){
+  .legal-header{
+    flex-direction:column;
+    padding:22px 18px;
+  }
+  .legal-header h1{
+    font-size:clamp(26px, 8vw, 34px);
+  }
+  .legal-section{
+    padding:22px 18px;
+  }
+  .legal-grid{
+    grid-template-columns:1fr;
+  }
+}
