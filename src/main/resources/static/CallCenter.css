@@ -826,3 +826,122 @@ button i{
     grid-template-columns:1fr;
   }
 }
+
+.contact-content{
+  max-width:900px;
+}
+.contact-card{
+  padding:32px;
+  border:1px solid var(--color-borde);
+  border-radius:var(--radio);
+  background-color:var(--color-fondo);
+  box-shadow:0 14px 35px rgba(9, 38, 56, .12);
+}
+.contact-intro{
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  margin-bottom:28px;
+}
+.contact-icon{
+  flex:0 0 auto;
+  width:54px;
+  height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  border:1px solid #bfdbfe;
+  background-color:#eff6ff;
+  font-size:28px;
+}
+.contact-intro h1{
+  margin:0 0 10px 0;
+  font-family:Georgia, 'Times New Roman', serif;
+  color:var(--color-secundario);
+  font-size:30px;
+}
+.contact-intro p{
+  margin:0;
+  color:#4b5563;
+  line-height:1.6;
+}
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:22px;
+}
+.contact-field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.contact-field label{
+  color:#243447;
+  font-size:16px;
+}
+.contact-field input,
+.contact-field textarea{
+  width:100%;
+  border:1px solid transparent;
+  border-radius:0;
+  background-color:#f7f7f7;
+  color:var(--color-texto);
+  font:inherit;
+  outline:none;
+  transition:border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.contact-field input{
+  min-height:46px;
+  padding:10px 14px;
+}
+.contact-field textarea{
+  min-height:260px;
+  padding:14px;
+  resize:vertical;
+}
+.contact-field input:focus,
+.contact-field textarea:focus{
+  border-color:var(--color-primario);
+  background-color:#fff;
+  box-shadow:0 0 0 3px rgba(15, 76, 92, .14);
+}
+.contact-submit{
+  align-self:flex-start;
+  min-width:86px;
+  padding:10px 22px;
+  border:0;
+  border-radius:999px;
+  background-color:#000;
+  color:#fff;
+  font-weight:bold;
+  cursor:pointer;
+}
+.contact-submit:hover,
+.contact-submit:focus{
+  background-color:var(--color-primario);
+}
+.legal-highlight-box{
+  background:linear-gradient(135deg, #f8fbff 0%, #eef6f8 100%);
+}
+.about-header{
+  background:linear-gradient(135deg, #f8fbff 0%, #f0fdf4 100%);
+}
+.about-grid .legal-info-box{
+  background-color:#fff;
+}
+
+@media (max-width: 760px){
+  .contact-card{
+    padding:22px 18px;
+  }
+  .contact-intro{
+    flex-direction:column;
+  }
+  .contact-field textarea{
+    min-height:220px;
+  }
+  .contact-submit{
+    width:100%;
+  }
+}
