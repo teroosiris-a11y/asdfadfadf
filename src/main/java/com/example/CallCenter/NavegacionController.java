@@ -87,9 +87,8 @@ public class NavegacionController {
     }
 
     @GetMapping("/politica-privacidad")
-    public String politicaPrivacidad(Model model) {
-        cargarPaginaPublica(model, "Política de Privacidad", "🔒", "Información provisional sobre el tratamiento y protección de datos de nuestros visitantes.");
-        return "pagina_publica";
+    public String politicaPrivacidad() {
+        return "politica_privacidad";
     }
 
     @GetMapping("/aviso-legal")
