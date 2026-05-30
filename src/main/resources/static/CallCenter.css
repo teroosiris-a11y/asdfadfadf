@@ -413,32 +413,48 @@ button i{
 .public-topbar-inner{
   gap:18px;
   padding:6px 0;
+  justify-content:flex-start;
 }
 .public-search{
-  flex:0 1 240px;
+  flex:0 0 235px;
+  position:relative;
   display:flex;
   align-items:center;
-  background-color:var(--color-fondo);
-  border:1px solid rgba(255,255,255,.65);
-  border-radius:999px;
-  padding:2px 8px 2px 14px;
-  box-shadow:0 6px 18px rgba(0,0,0,.14);
+  margin-left:8px;
 }
 .public-search input{
-  border:0;
-  padding:8px 4px;
+  width:100%;
+  height:42px;
+  border:1px solid rgba(255,255,255,.65);
+  padding:8px 44px 8px 16px;
   border-radius:999px;
+  background-color:var(--color-fondo);
+  color:var(--color-texto);
   outline:none;
+  box-shadow:0 6px 18px rgba(0,0,0,.14);
 }
 .public-search button{
-  width:auto;
-  padding:6px 8px;
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
   border:0;
   background:transparent;
   color:var(--color-texto);
+  box-shadow:none;
+}
+.public-search button i{
+  margin-right:0;
 }
 .public-menu{
   margin-top:0;
+  margin-left:auto;
   justify-content:flex-end;
   align-items:center;
   gap:8px;
@@ -462,6 +478,7 @@ button i{
   }
   .public-search{
     order:2;
+    margin-left:0;
   }
   .public-menu{
     order:3;
