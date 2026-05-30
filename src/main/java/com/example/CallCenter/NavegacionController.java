@@ -45,6 +45,48 @@ public class NavegacionController {
     @GetMapping("/contacto")
     public String contacto() { return "contacto"; }
 
+    @GetMapping("/blog")
+    public String blog(Model model) {
+        cargarPaginaPublica(model, "Blog", "🌐", "Noticias, consejos y novedades para mantenerte al día desde nuestra plataforma.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/convocatorias")
+    public String convocatorias(Model model) {
+        cargarPaginaPublica(model, "Convocatorias", "👔", "Encuentra oportunidades y llamados importantes organizados para nuestros visitantes.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/bonos")
+    public String bonos(Model model) {
+        cargarPaginaPublica(model, "Bonos", "🤝", "Consulta beneficios, apoyos y novedades disponibles en un solo lugar.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/becas")
+    public String becas(Model model) {
+        cargarPaginaPublica(model, "Becas", "👩‍🎓", "Revisa opciones educativas y oportunidades de formación destacadas.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/empresas-publicas")
+    public String empresasPublicas(Model model) {
+        cargarPaginaPublica(model, "Empresas", "🏭", "Espacio público para conocer empresas y futuras novedades del portal.");
+        return "pagina_publica";
+    }
+
+    @GetMapping("/empleos-fabricas")
+    public String empleosFabricas(Model model) {
+        cargarPaginaPublica(model, "Empleos en Fabricas", "🏬", "Explora ofertas, guías y accesos rápidos relacionados con empleos en fábricas.");
+        return "pagina_publica";
+    }
+
+    private void cargarPaginaPublica(Model model, String titulo, String icono, String descripcion) {
+        model.addAttribute("titulo", titulo);
+        model.addAttribute("icono", icono);
+        model.addAttribute("descripcion", descripcion);
+    }
+
     // ─── Dashboard por rol ────────────────────────────────────────────────────
 
     @GetMapping("/dashboard")

@@ -9,19 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="topbar-inner">
-    <div class="brand">
-      <img src="/logo.png" alt="Logo Sistema CallCenter" class="brand-logo">
-    </div>
-    <nav class="menu" aria-label="Navegación principal">
-      <a href="/main" class="active">Inicio</a>
-      <a href="/contacto">Contacto</a>
-      <a href="/publicidad">Publicidad</a>
-      <a href="/login" class="session">Login</a>
-    </nav>
-  </div>
-</header>
+<%@ include file="fragments/nav_publico.jsp" %>
 <div class="footer">Sistema de Call Center</div>
 </body>
 </html>

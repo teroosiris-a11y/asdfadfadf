@@ -15,19 +15,7 @@
     <%@ include file="fragments/nav_privado.jsp" %>
   </c:when>
   <c:otherwise>
-    <header class="topbar">
-      <div class="topbar-inner">
-        <div class="brand">
-          <img src="/logo.png" alt="Logo Sistema CallCenter" class="brand-logo">
-        </div>
-        <nav class="menu" aria-label="Navegación principal">
-          <a href="/main">Inicio</a>
-          <a href="/contacto" class="active">Contacto</a>
-          <a href="/publicidad">Publicidad</a>
-          <a href="/login" class="session">Login</a>
-        </nav>
-      </div>
-    </header>
+    <%@ include file="fragments/nav_publico.jsp" %>
   </c:otherwise>
 </c:choose>
 <div class="footer">Sistema de Call Center</div>
