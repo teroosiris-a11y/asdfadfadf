@@ -235,6 +235,35 @@ th{
 .login-box h2{
   text-align:center;
 }
+.login-form{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:18px;
+}
+.login-form label{
+  font-weight:bold;
+}
+.login-form button{
+  margin-top:8px;
+}
+.alert{
+  border:1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding:10px 12px;
+  margin:12px 0;
+  font-weight:bold;
+}
+.alert-error{
+  background-color:#fee2e2;
+  border-color:#ef4444;
+  color:#7f1d1d;
+}
+.credentials-note{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
 .small-note,
 .footer{
   text-align:center;
