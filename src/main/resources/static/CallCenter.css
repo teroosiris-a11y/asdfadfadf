@@ -925,7 +925,7 @@ button i{
   background:linear-gradient(135deg, #f8fbff 0%, #eef6f8 100%);
 }
 .about-header{
-  background:linear-gradient(135deg, #f8fbff 0%, #f0fdf4 100%);
+  background:linear-gradient(135deg, #f8fbff 0%, #eef6f8 100%);
 }
 .about-grid .legal-info-box{
   background-color:#fff;
@@ -951,34 +951,35 @@ button i{
   background:#ffffff;
 }
 .home-page .public-topbar{
-  background:#bdd8a1;
-  border-bottom:0;
+  background:#092638;
+  border-bottom:2px solid var(--color-secundario);
 }
 .home-page .topbar-inner.public-topbar-inner{
-  min-height:162px;
+  min-height:80px;
 }
 .home-page .brand-logo{
-  display:none;
+  display:block;
 }
 .home-page .public-search{
   margin-left:0;
 }
 .home-page .public-search input{
-  border-color:#e5e7eb;
-  box-shadow:none;
+  border-color:rgba(255,255,255,.65);
+  box-shadow:0 6px 18px rgba(0,0,0,.14);
 }
 .home-page .public-menu a{
-  border:0;
-  background:transparent;
-  color:#263342;
-  padding:8px 10px;
-  font-weight:400;
+  border:1px solid rgba(255,255,255,.55);
+  background-color:var(--color-primario);
+  color:var(--color-fondo);
+  padding:9px 11px;
+  font-weight:bold;
 }
 .home-page .public-menu a.active,
 .home-page .public-menu a:hover,
 .home-page .public-menu a:focus{
-  background:transparent;
-  color:#1f7a30;
+  background:#0b5f78;
+  border-color:#7dd3fc;
+  color:#ffffff;
   text-decoration:none;
 }
 .home-main{
@@ -1012,10 +1013,10 @@ button i{
 }
 .home-panel{
   padding:54px 18px 22px;
-  background:linear-gradient(180deg, #dcefdc 0%, #f1f4e9 100%);
+  background:linear-gradient(180deg, #e7f4fb 0%, #f3f8fc 100%);
 }
 .home-panel-bonuses{
-  background:#eef5e8;
+  background:#edf7fc;
 }
 .home-panel-employers{
   background:#ffffff;
@@ -1030,7 +1031,7 @@ button i{
   display:inline-block;
   padding:10px 20px;
   border-radius:999px;
-  background:#267b32;
+  background:#0f4c5c;
   color:#fff;
   font-size:13px;
   font-weight:800;
@@ -1045,7 +1046,7 @@ button i{
 }
 .home-hero-copy h1 span{
   display:block;
-  color:#267b32;
+  color:#0f4c5c;
 }
 .home-hero-copy p,
 .home-section-heading p{
@@ -1059,7 +1060,7 @@ button i{
 .home-section-heading span{
   display:block;
   margin-bottom:6px;
-  color:#227238;
+  color:#0f6f8f;
   font-size:12px;
   font-weight:900;
   letter-spacing:.08em;
@@ -1068,7 +1069,7 @@ button i{
 .home-panel-bonuses .home-section-heading span,
 .home-panel-bonuses .home-card-category,
 .home-panel-bonuses .home-card-link{
-  color:#f15a24;
+  color:#0b5f78;
 }
 .home-section-heading h2{
   margin:0 0 8px;
@@ -1097,7 +1098,7 @@ button i{
 .home-action-card:hover,
 .home-action-card:focus{
   transform:translateY(-2px);
-  border-color:#bdd8a1;
+  border-color:#7dd3fc;
   box-shadow:0 16px 30px rgba(15, 23, 42, .14);
   outline:none;
 }
@@ -1106,11 +1107,11 @@ button i{
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#e6efd9;
+  background:#dff1fb;
   font-size:36px;
 }
 .bonus-card .home-card-icon{
-  background:#fff5d9;
+  background:#e6f4ff;
 }
 .home-card-body{
   display:flex;
@@ -1121,7 +1122,7 @@ button i{
   padding:16px;
 }
 .home-card-category{
-  color:#23813b;
+  color:#0f6f8f;
   font-size:11px;
   font-weight:900;
   letter-spacing:.08em;
@@ -1134,7 +1135,7 @@ button i{
 }
 .home-card-link{
   margin-top:auto;
-  color:#19742d;
+  color:#0f6f8f;
   font-size:13px;
   font-weight:800;
 }
@@ -1178,7 +1179,7 @@ button i{
   line-height:1.4;
 }
 .explore-card em{
-  color:#19742d;
+  color:#0f6f8f;
   font-size:13px;
   font-style:normal;
   font-weight:800;
@@ -1190,16 +1191,16 @@ button i{
   outline:none;
 }
 .home-page .public-footer{
-  border-top:4px solid #bdd8a1;
+  border-top:4px solid #0f4c5c;
 }
 .home-page .public-footer-bottom{
-  background:#bdd8a1;
+  background:#0f4c5c;
   min-height:72px;
   padding:28px 20px;
 }
 .home-page .public-footer-copy,
 .home-page .public-footer-links a{
-  color:#1f2937;
+  color:#f8fbff;
 }
 
 @media (min-width: 1200px){
