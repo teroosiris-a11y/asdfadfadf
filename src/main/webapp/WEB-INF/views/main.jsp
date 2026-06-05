@@ -40,7 +40,7 @@
         </span>
       </a>
 
-      <a class="home-action-card" href="/convocatorias#tecnico-refrigeracion-aire-acondicionado" aria-label="Ver vacante para Técnico en Refrigeración y Aire Acondicionado">
+      <a class="home-action-card" href="/convocatorias/tecnico-refrigeracion-aire-acondicionado" aria-label="Ver vacante para Técnico en Refrigeración y Aire Acondicionado">
         <span class="home-card-icon" aria-hidden="true">❄️</span>
         <span class="home-card-body">
           <span class="home-card-category">Técnico</span>
@@ -49,7 +49,7 @@
         </span>
       </a>
 
-      <a class="home-action-card" href="/convocatorias#gestor-cobranza-telefonica-campo" aria-label="Ver vacante Gestor de Cobranza Telefónica y de Campo">
+      <a class="home-action-card" href="/convocatorias/gestor-cobranza-telefonica-campo" aria-label="Ver vacante Gestor de Cobranza Telefónica y de Campo">
         <span class="home-card-icon" aria-hidden="true">💰</span>
         <span class="home-card-body">
           <span class="home-card-category">Finanzas</span>
@@ -58,7 +58,7 @@
         </span>
       </a>
 
-      <a class="home-action-card" href="/convocatorias#tecnico-instalador-redes-telecomunicaciones" aria-label="Ver vacante Técnico Instalador de Redes y Telecomunicaciones">
+      <a class="home-action-card" href="/convocatorias/tecnico-instalador-redes-telecomunicaciones" aria-label="Ver vacante Técnico Instalador de Redes y Telecomunicaciones">
         <span class="home-card-icon" aria-hidden="true">🔁</span>
         <span class="home-card-body">
           <span class="home-card-category">Telecom</span>
@@ -67,7 +67,7 @@
         </span>
       </a>
 
-      <a class="home-action-card" href="/convocatorias#auxiliar-recursos-humanos-seleccion" aria-label="Ver vacante Auxiliar de Recursos Humanos y Selección de Personal">
+      <a class="home-action-card" href="/convocatorias/auxiliar-recursos-humanos-seleccion" aria-label="Ver vacante Auxiliar de Recursos Humanos y Selección de Personal">
         <span class="home-card-icon" aria-hidden="true">👥</span>
         <span class="home-card-body">
           <span class="home-card-category">RRHH</span>

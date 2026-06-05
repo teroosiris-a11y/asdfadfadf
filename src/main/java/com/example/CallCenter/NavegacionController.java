@@ -87,9 +87,13 @@ public class NavegacionController {
     }
 
 
-    @GetMapping("/convocatorias/supervisor-inventarios-operaciones-almacen")
-    public String supervisorInventarios(Model model) {
-        model.addAttribute("publicacion", publicacionConfigService.obtenerSupervisorInventarios());
+    @GetMapping("/convocatorias/{slug}")
+    public String detalleConvocatoria(@org.springframework.web.bind.annotation.PathVariable String slug, Model model) {
+        PublicacionConfig publicacion = publicacionConfigService.obtenerPorSlug(slug);
+        if (publicacion == null) {
+            return "redirect:/convocatorias";
+        }
+        model.addAttribute("publicacion", publicacion);
         return "publicacion_empleo";
     }
 
