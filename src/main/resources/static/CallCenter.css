@@ -1241,3 +1241,237 @@ button i{
     grid-column:auto;
   }
 }
+
+/* Detalle público de vacantes y editor SuperAdmin */
+.public-job-page{
+  background:linear-gradient(180deg, #eef8ff 0%, #ffffff 280px);
+}
+.job-detail-shell{
+  width:min(1180px, 94%);
+  margin:0 auto 34px auto;
+}
+.job-sponsored{
+  margin:26px auto;
+  max-width:970px;
+}
+.job-article{
+  background:#ffffff;
+  border:1px solid #d8e9f5;
+  border-radius:26px;
+  box-shadow:0 18px 45px rgba(15, 76, 92, .10);
+  overflow:hidden;
+}
+.job-hero{
+  padding:24px;
+  background:linear-gradient(135deg, #dff3ff 0%, #f7fcff 46%, #ffffff 100%);
+}
+.job-hero-image{
+  min-height:260px;
+  border:1px dashed #8ecae6;
+  border-radius:22px;
+  background:linear-gradient(135deg, #cfeeff, #eef9ff);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  overflow:hidden;
+  color:#0b5f8a;
+  text-align:center;
+}
+.job-hero-image img{
+  width:100%;
+  height:100%;
+  min-height:260px;
+  object-fit:cover;
+  display:block;
+}
+.job-hero-placeholder-icon{
+  font-size:58px;
+}
+.job-hero-placeholder-text{
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.job-hero-card{
+  width:min(900px, 94%);
+  margin:-52px auto 0 auto;
+  position:relative;
+  z-index:1;
+  padding:28px;
+  border:1px solid #d9edf8;
+  border-radius:24px;
+  background:rgba(255,255,255,.96);
+  box-shadow:0 20px 44px rgba(6, 95, 138, .16);
+}
+.job-category{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  color:#00679a;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.job-category::before{
+  content:"💼";
+  letter-spacing:0;
+}
+.job-hero-card h1,
+.job-section h2,
+.other-jobs h2{
+  font-family:Georgia, 'Times New Roman', serif;
+  color:#071827;
+}
+.job-hero-card h1{
+  margin:0;
+  font-size:clamp(34px, 5vw, 62px);
+  line-height:1.05;
+}
+.job-hero-card p{
+  margin:14px 0 0 0;
+  color:#395165;
+  font-size:18px;
+}
+.job-section{
+  padding:28px clamp(22px, 5vw, 72px);
+  border-top:1px solid #e8f4fb;
+}
+.job-section h2{
+  margin:0 0 16px 0;
+  font-size:clamp(30px, 4vw, 48px);
+  line-height:1.08;
+}
+.job-section p,
+.job-list{
+  color:#294257;
+  font-size:17px;
+  line-height:1.72;
+}
+.job-intro-card{
+  background:#fbfdff;
+}
+.job-list{
+  width:min(760px, 100%);
+  margin:18px auto 0 auto;
+  padding-left:26px;
+}
+.job-list li{
+  margin-bottom:10px;
+}
+.job-related-list{
+  columns:2 280px;
+}
+.job-cta-section{
+  text-align:center;
+  background:linear-gradient(180deg, #ffffff, #eff8ff);
+}
+.job-info-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+  padding:14px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg, #66c7ef, #4a8df7);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow:0 10px 24px rgba(30, 111, 190, .25);
+}
+.job-info-button:hover,
+.job-info-button:focus{
+  transform:translateY(-1px);
+  box-shadow:0 14px 28px rgba(30, 111, 190, .32);
+}
+.job-entry-nav{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:28px clamp(18px, 6vw, 84px);
+  color:#54715f;
+}
+.job-entry-nav a{
+  text-decoration:none;
+}
+.other-jobs{
+  padding:26px 0 40px 0;
+}
+.other-jobs h2{
+  text-align:center;
+  font-size:34px;
+  margin:0 0 28px 0;
+}
+.other-jobs-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:34px 24px;
+  width:min(860px, 100%);
+  margin:0 auto;
+}
+.other-job-card h3{
+  margin:12px 0 6px 0;
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:22px;
+  color:#071827;
+}
+.other-job-card p{
+  margin:0;
+  color:#57715f;
+}
+.other-job-image{
+  min-height:190px;
+  border-radius:16px;
+  background:linear-gradient(135deg, #dff3ff, #eef8ff);
+  border:1px dashed #9ccbe4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#0b5f8a;
+  font-weight:800;
+}
+.publication-admin-form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.publication-admin-form label{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  color:var(--color-secundario);
+  font-weight:bold;
+}
+.publication-admin-form textarea{
+  min-height:86px;
+}
+.publication-admin-form .form-grid{
+  margin:0;
+}
+
+@media (max-width: 760px){
+  .job-hero{
+    padding:14px;
+  }
+  .job-hero-image,
+  .job-hero-image img{
+    min-height:190px;
+  }
+  .job-hero-card{
+    width:100%;
+    margin:-28px auto 0 auto;
+    padding:20px;
+  }
+  .job-section{
+    padding:24px 18px;
+  }
+  .other-jobs-grid{
+    grid-template-columns:1fr;
+  }
+  .job-entry-nav{
+    flex-direction:column;
+    text-align:center;
+  }
+}

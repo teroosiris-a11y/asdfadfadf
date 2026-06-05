@@ -31,7 +31,7 @@
     </div>
 
     <div class="home-card-grid">
-      <a class="home-action-card" href="/convocatorias#supervisor-inventarios-operaciones-almacen" aria-label="Ver vacante Supervisor de Inventarios y Operaciones de Almacén">
+      <a class="home-action-card" href="/convocatorias/supervisor-inventarios-operaciones-almacen" aria-label="Ver vacante Supervisor de Inventarios y Operaciones de Almacén">
         <span class="home-card-icon" aria-hidden="true">🏭</span>
         <span class="home-card-body">
           <span class="home-card-category">Logística</span>

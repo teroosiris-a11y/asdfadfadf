@@ -2,6 +2,8 @@ package com.example.CallCenter;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 import jakarta.servlet.http.HttpSession;
@@ -22,13 +24,16 @@ public class NavegacionController {
     private final LlamadaService llamadaService;
     private final TipificacionService tipificacionService;
     private final EmpresaService empresaService;
+    private final PublicacionConfigService publicacionConfigService;
 
     public NavegacionController(LlamadaService llamadaService,
                                 TipificacionService tipificacionService,
-                                EmpresaService empresaService) {
+                                EmpresaService empresaService,
+                                PublicacionConfigService publicacionConfigService) {
         this.llamadaService = llamadaService;
         this.tipificacionService = tipificacionService;
         this.empresaService = empresaService;
+        this.publicacionConfigService = publicacionConfigService;
     }
 
     // ─── Páginas públicas ──────────────────────────────────────────────────────
@@ -79,6 +84,13 @@ public class NavegacionController {
     public String empleosFabricas(Model model) {
         cargarPaginaPublica(model, "Empleos en Fabricas", "🏬", "Explora ofertas, guías y accesos rápidos relacionados con empleos en fábricas.");
         return "pagina_publica";
+    }
+
+
+    @GetMapping("/convocatorias/supervisor-inventarios-operaciones-almacen")
+    public String supervisorInventarios(Model model) {
+        model.addAttribute("publicacion", publicacionConfigService.obtenerSupervisorInventarios());
+        return "publicacion_empleo";
     }
 
     @GetMapping("/politica-cookies")
@@ -151,6 +163,26 @@ public class NavegacionController {
     }
 
     // ─── SuperAdmin exclusivo ─────────────────────────────────────────────────
+
+
+    @GetMapping("/dashboard/superadmin/publicacion-supervisor")
+    public String editarPublicacionSupervisor(HttpSession session, Model model) {
+        if (!"superadmin".equals(session.getAttribute("rol"))) return "redirect:/login";
+        model.addAttribute("publicacion", publicacionConfigService.obtenerSupervisorInventarios());
+        return "superadmin_publicacion";
+    }
+
+    @PostMapping("/dashboard/superadmin/publicacion-supervisor")
+    public String guardarPublicacionSupervisor(
+            HttpSession session,
+            @ModelAttribute PublicacionConfig publicacion,
+            Model model) {
+        if (!"superadmin".equals(session.getAttribute("rol"))) return "redirect:/login";
+        publicacionConfigService.guardarSupervisorInventarios(publicacion);
+        model.addAttribute("publicacion", publicacionConfigService.obtenerSupervisorInventarios());
+        model.addAttribute("mensajeExito", "La publicación fue actualizada correctamente.");
+        return "superadmin_publicacion";
+    }
 
     @GetMapping("/empresas")
     public String empresas(
