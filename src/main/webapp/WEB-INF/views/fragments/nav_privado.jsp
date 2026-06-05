@@ -32,6 +32,7 @@
         <c:when test="${rolSesion == 'superadmin'}">
           <a href="/empresas" class="${uriActual.contains('/empresas') ? 'active' : ''}">Lista de Empresas</a>
           <a href="/metricas/superadmin" class="${uriActual.contains('/metricas') ? 'active' : ''}">Métricas</a>
+          <a href="/dashboard/superadmin/publicacion-supervisor" class="${uriActual.contains('/publicacion-supervisor') ? 'active' : ''}">Publicación destacada</a>
         </c:when>
         <c:when test="${rolSesion == 'agente'}">
           <a href="/llamadas" class="${uriActual.contains('/llamadas') ? 'active' : ''}">Llamadas</a>
