@@ -21,7 +21,30 @@ public class PublicacionConfigService {
     }
 
     public synchronized PublicacionConfig obtenerSupervisorInventarios() {
-        return new PublicacionConfig(supervisorInventarios);
+        PublicacionConfig publicacion = new PublicacionConfig(supervisorInventarios);
+        if (publicacion.getContenidoHtml() == null || publicacion.getContenidoHtml().isBlank()) {
+            publicacion.setContenidoHtml(PublicacionConfig.supervisorInventariosDefault().getContenidoHtml());
+        }
+        return publicacion;
+    }
+
+    public synchronized PublicacionConfig obtenerPorSlug(String slug) {
+        if ("supervisor-inventarios-operaciones-almacen".equals(slug)) {
+            return obtenerSupervisorInventarios();
+        }
+        if ("tecnico-refrigeracion-aire-acondicionado".equals(slug)) {
+            return PublicacionConfig.tecnicoRefrigeracionDefault();
+        }
+        if ("gestor-cobranza-telefonica-campo".equals(slug)) {
+            return PublicacionConfig.gestorCobranzaDefault();
+        }
+        if ("tecnico-instalador-redes-telecomunicaciones".equals(slug)) {
+            return PublicacionConfig.tecnicoRedesDefault();
+        }
+        if ("auxiliar-recursos-humanos-seleccion".equals(slug)) {
+            return PublicacionConfig.auxiliarRecursosHumanosDefault();
+        }
+        return null;
     }
 
     public synchronized void guardarSupervisorInventarios(PublicacionConfig config) {
@@ -45,6 +68,7 @@ public class PublicacionConfigService {
             aplicarSiExiste(properties, "heroImageAlt", supervisorInventarios::setHeroImageAlt);
             aplicarSiExiste(properties, "postulationUrl", supervisorInventarios::setPostulationUrl);
             aplicarSiExiste(properties, "buttonLabel", supervisorInventarios::setButtonLabel);
+            aplicarSiExiste(properties, "icono", supervisorInventarios::setIcono);
             aplicarSiExiste(properties, "queConsiste", supervisorInventarios::setQueConsiste);
             aplicarSiExiste(properties, "funcionesIntro", supervisorInventarios::setFuncionesIntro);
             aplicarSiExiste(properties, "perfilIntro", supervisorInventarios::setPerfilIntro);
@@ -66,6 +90,7 @@ public class PublicacionConfigService {
         properties.setProperty("heroImageAlt", textoSeguro(supervisorInventarios.getHeroImageAlt()));
         properties.setProperty("postulationUrl", textoSeguro(supervisorInventarios.getPostulationUrl()));
         properties.setProperty("buttonLabel", textoSeguro(supervisorInventarios.getButtonLabel()));
+        properties.setProperty("icono", textoSeguro(supervisorInventarios.getIcono()));
         properties.setProperty("queConsiste", textoSeguro(supervisorInventarios.getQueConsiste()));
         properties.setProperty("funcionesIntro", textoSeguro(supervisorInventarios.getFuncionesIntro()));
         properties.setProperty("perfilIntro", textoSeguro(supervisorInventarios.getPerfilIntro()));
