@@ -44,6 +44,27 @@ public class PublicacionConfigService {
         if ("auxiliar-recursos-humanos-seleccion".equals(slug)) {
             return PublicacionConfig.auxiliarRecursosHumanosDefault();
         }
+        if ("disenador-grafico-contenido-digital".equals(slug)) {
+            return PublicacionCatalog.disenadorGraficoDefault();
+        }
+        if ("apoyo-discapacidad-permanente".equals(slug)) {
+            return PublicacionCatalog.apoyoDiscapacidadDefault();
+        }
+        if ("salud-en-tu-comunidad".equals(slug)) {
+            return PublicacionCatalog.saludComunidadDefault();
+        }
+        if ("adultos-mayores-registro".equals(slug)) {
+            return PublicacionCatalog.adultosMayoresDefault();
+        }
+        if ("leche-subsidiada".equals(slug)) {
+            return PublicacionCatalog.lecheSubsidiadaDefault();
+        }
+        if ("proteccion-familias".equals(slug)) {
+            return PublicacionCatalog.proteccionFamiliasDefault();
+        }
+        if ("reconstruyendo-comunidades".equals(slug)) {
+            return PublicacionCatalog.reconstruyendoComunidadesDefault();
+        }
         return null;
     }
 

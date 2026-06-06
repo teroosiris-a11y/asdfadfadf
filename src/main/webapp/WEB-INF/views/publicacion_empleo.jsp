@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><c:out value="${publicacion.titulo}" /> | Empleos</title>
   <meta name="description" content="Información detallada de oportunidad laboral y recomendaciones para postular.">
-  <link rel="stylesheet" href="/CallCenter.css?v=job-detail-20260605">
+  <link rel="stylesheet" href="/CallCenter.css?v=job-detail-20260606">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body class="public-job-page">
@@ -39,9 +39,19 @@
       </div>
     </header>
 
+    <section class="sponsored-space job-inline-sponsored" aria-label="Enlace patrocinado del artículo">
+      <p>Enlace Patrocinado</p>
+      <div class="sponsored-placeholder" aria-hidden="true"></div>
+    </section>
+
     <div class="job-content-body">
       <c:out value="${publicacion.contenidoHtml}" escapeXml="false" />
     </div>
+
+    <section class="sponsored-space job-inline-sponsored" aria-label="Enlace patrocinado antes del enlace final">
+      <p>Enlace Patrocinado</p>
+      <div class="sponsored-placeholder" aria-hidden="true"></div>
+    </section>
 
     <section class="job-section job-cta-section" aria-labelledby="enlace-postulacion-title">
       <h2 id="enlace-postulacion-title">Enlace de postulación al final del artículo 🔗✨</h2>
@@ -53,12 +63,12 @@
   </article>
 
   <nav class="job-entry-nav" aria-label="Navegación entre entradas">
-    <a href="/convocatorias">← Entrada anterior</a>
-    <a href="/bonos">Entrada siguiente →</a>
+    <a href="${empty volverUrl ? '/convocatorias' : volverUrl}">← Entrada anterior</a>
+    <a href="${empty siguienteUrl ? '/bonos' : siguienteUrl}">Entrada siguiente →</a>
   </nav>
 
   <section class="other-jobs" aria-labelledby="otras-ofertas-title">
-    <h2 id="otras-ofertas-title">Otras Ofertas de Empleo</h2>
+    <h2 id="otras-ofertas-title">También puede interesarte</h2>
     <div class="other-jobs-grid">
       <article class="other-job-card">
         <div class="other-job-image placeholder">Imagen pendiente</div>
@@ -77,7 +87,7 @@
       </article>
       <article class="other-job-card">
         <div class="other-job-image placeholder">Imagen pendiente</div>
-        <h3>Beca Universal Rita Cetina</h3>
+        <h3>Diseñador Gráfico y Creador de Contenido Digital</h3>
         <p>Por Jose Chavez / 27/05/2026</p>
       </article>
     </div>

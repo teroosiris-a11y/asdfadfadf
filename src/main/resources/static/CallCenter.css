@@ -1254,6 +1254,18 @@ button i{
   margin:26px auto;
   max-width:970px;
 }
+
+.job-inline-sponsored{
+  width:min(820px, 92%);
+  margin:24px auto;
+  padding:18px 0 4px;
+  border-top:1px solid #e8f4fb;
+  border-bottom:1px solid #e8f4fb;
+}
+.job-inline-sponsored .sponsored-placeholder{
+  min-height:110px;
+}
+
 .job-article{
   background:#ffffff;
   border:1px solid #d8e9f5;

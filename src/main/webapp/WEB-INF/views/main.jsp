@@ -76,7 +76,7 @@
         </span>
       </a>
 
-      <a class="home-action-card" href="/convocatorias#disenador-grafico-contenido-digital" aria-label="Ver vacante Diseñador Gráfico y Creador de Contenido Digital">
+      <a class="home-action-card" href="/convocatorias/disenador-grafico-contenido-digital" aria-label="Ver vacante Diseñador Gráfico y Creador de Contenido Digital">
         <span class="home-card-icon" aria-hidden="true">🖼️</span>
         <span class="home-card-body">
           <span class="home-card-category">Diseño</span>
@@ -100,7 +100,7 @@
     </div>
 
     <div class="home-card-grid">
-      <a class="home-action-card bonus-card" href="/bonos#apoyo-discapacidad-permanente" aria-label="Ver apoyo para personas con discapacidad permanente">
+      <a class="home-action-card bonus-card" href="/bonos/apoyo-discapacidad-permanente" aria-label="Ver apoyo para personas con discapacidad permanente">
         <span class="home-card-icon" aria-hidden="true">🇲🇽</span>
         <span class="home-card-body">
           <span class="home-card-category">Pensión</span>
@@ -109,7 +109,7 @@
         </span>
       </a>
 
-      <a class="home-action-card bonus-card" href="/bonos#salud-en-tu-comunidad" aria-label="Ver programa Salud en Tu Comunidad">
+      <a class="home-action-card bonus-card" href="/bonos/salud-en-tu-comunidad" aria-label="Ver programa Salud en Tu Comunidad">
         <span class="home-card-icon" aria-hidden="true">✚</span>
         <span class="home-card-body">
           <span class="home-card-category">Salud</span>
@@ -118,7 +118,7 @@
         </span>
       </a>
 
-      <a class="home-action-card bonus-card" href="/bonos#adultos-mayores-registro" aria-label="Ver apoyo para personas adultas mayores">
+      <a class="home-action-card bonus-card" href="/bonos/adultos-mayores-registro" aria-label="Ver apoyo para personas adultas mayores">
         <span class="home-card-icon" aria-hidden="true">🧓</span>
         <span class="home-card-body">
           <span class="home-card-category">Adultos mayores</span>
@@ -127,7 +127,7 @@
         </span>
       </a>
 
-      <a class="home-action-card bonus-card" href="/bonos#leche-subsidiada" aria-label="Ver programa de leche subsidiada">
+      <a class="home-action-card bonus-card" href="/bonos/leche-subsidiada" aria-label="Ver programa de leche subsidiada">
         <span class="home-card-icon" aria-hidden="true">🍼</span>
         <span class="home-card-body">
           <span class="home-card-category">Alimentación</span>
@@ -136,7 +136,7 @@
         </span>
       </a>
 
-      <a class="home-action-card bonus-card" href="/bonos#proteccion-familias" aria-label="Ver protección y apoyo para el futuro de las familias">
+      <a class="home-action-card bonus-card" href="/bonos/proteccion-familias" aria-label="Ver protección y apoyo para el futuro de las familias">
         <span class="home-card-icon" aria-hidden="true">👨‍👩‍👧</span>
         <span class="home-card-body">
           <span class="home-card-category">Seguro</span>
@@ -145,7 +145,7 @@
         </span>
       </a>
 
-      <a class="home-action-card bonus-card" href="/bonos#reconstruyendo-comunidades" aria-label="Ver programa reconstruyendo comunidades">
+      <a class="home-action-card bonus-card" href="/bonos/reconstruyendo-comunidades" aria-label="Ver programa reconstruyendo comunidades">
         <span class="home-card-icon" aria-hidden="true">🏢</span>
         <span class="home-card-body">
           <span class="home-card-category">Vivienda</span>

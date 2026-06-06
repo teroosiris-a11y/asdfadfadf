@@ -94,6 +94,20 @@ public class NavegacionController {
             return "redirect:/convocatorias";
         }
         model.addAttribute("publicacion", publicacion);
+        model.addAttribute("volverUrl", "/convocatorias");
+        model.addAttribute("siguienteUrl", "/bonos");
+        return "publicacion_empleo";
+    }
+
+    @GetMapping("/bonos/{slug}")
+    public String detalleBono(@org.springframework.web.bind.annotation.PathVariable String slug, Model model) {
+        PublicacionConfig publicacion = publicacionConfigService.obtenerPorSlug(slug);
+        if (publicacion == null) {
+            return "redirect:/bonos";
+        }
+        model.addAttribute("publicacion", publicacion);
+        model.addAttribute("volverUrl", "/bonos");
+        model.addAttribute("siguienteUrl", "/main");
         return "publicacion_empleo";
     }
 
