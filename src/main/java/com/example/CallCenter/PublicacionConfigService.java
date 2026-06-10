@@ -65,6 +65,24 @@ public class PublicacionConfigService {
         if ("reconstruyendo-comunidades".equals(slug)) {
             return PublicacionCatalog.reconstruyendoComunidadesDefault();
         }
+        if ("programa-nacional-reconstruccion".equals(slug)) {
+            return PublicacionCatalog.programaNacionalReconstruccionDefault();
+        }
+        if ("seguridad-proteccion".equals(slug)) {
+            return PublicacionCatalog.seguridadProteccionDefault();
+        }
+        if ("conductor-distribuidor".equals(slug)) {
+            return PublicacionCatalog.conductorDistribuidorDefault();
+        }
+        if ("ayudante-panaderia".equals(slug)) {
+            return PublicacionCatalog.ayudantePanaderiaDefault();
+        }
+        if ("auxiliar-limpieza-hoteleria".equals(slug)) {
+            return PublicacionCatalog.auxiliarLimpiezaHoteleriaDefault();
+        }
+        if ("empacador-carrera-impacto".equals(slug)) {
+            return PublicacionCatalog.empacadorCarreraImpactoDefault();
+        }
         return null;
     }
 

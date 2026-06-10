@@ -111,6 +111,18 @@ public class NavegacionController {
         return "publicacion_empleo";
     }
 
+    @GetMapping("/empresas-publicas/{slug}")
+    public String detalleEmpresaPublica(@org.springframework.web.bind.annotation.PathVariable String slug, Model model) {
+        PublicacionConfig publicacion = publicacionConfigService.obtenerPorSlug(slug);
+        if (publicacion == null) {
+            return "redirect:/empresas-publicas";
+        }
+        model.addAttribute("publicacion", publicacion);
+        model.addAttribute("volverUrl", "/empresas-publicas");
+        model.addAttribute("siguienteUrl", "/main");
+        return "publicacion_empleo";
+    }
+
     @GetMapping("/politica-cookies")
     public String politicaCookies() {
         return "politica_cookies";
