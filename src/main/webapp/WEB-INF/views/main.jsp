@@ -169,56 +169,56 @@
     </div>
 
     <div class="home-card-grid">
-      <a class="home-action-card" href="/empresas-publicas#walmart" aria-label="Ver vacante Vendedor en Walmart">
-        <span class="home-card-icon" aria-hidden="true">🛒</span>
+      <a class="home-action-card" href="/empresas-publicas/programa-nacional-reconstruccion" aria-label="Ver construir para Avanzar: Conoce el Programa Nacional de Reconstrucción">
+        <span class="home-card-icon" aria-hidden="true">🏡</span>
         <span class="home-card-body">
-          <span class="home-card-category">Retail</span>
-          <strong>Vendedor en Walmart</strong>
+          <span class="home-card-category">Reconstrucción</span>
+          <strong>construir para Avanzar: Conoce el Programa Nacional de Reconstrucción 🏡✨</strong>
           <span class="home-card-link">Ver vacante →</span>
         </span>
       </a>
 
-      <a class="home-action-card" href="/empresas-publicas#eulen" aria-label="Ver vacante Guardia de Seguridad en Grupo EULEN">
+      <a class="home-action-card" href="/empresas-publicas/seguridad-proteccion" aria-label="Ver Seguridad y Protección: Una Carrera con Propósito y Estabilidad">
         <span class="home-card-icon" aria-hidden="true">👮</span>
         <span class="home-card-body">
           <span class="home-card-category">Seguridad</span>
-          <strong>Guardia de Seguridad en Grupo EULEN</strong>
+          <strong>Seguridad y Protección: Una Carrera con Propósito y Estabilidad 🛡️✨</strong>
           <span class="home-card-link">Ver vacante →</span>
         </span>
       </a>
 
-      <a class="home-action-card" href="/empresas-publicas#coca-cola-femsa" aria-label="Ver vacante Chofer Repartidor en Coca-Cola FEMSA">
+      <a class="home-action-card" href="/empresas-publicas/conductor-distribuidor" aria-label="Ver Conductor Distribuidor: Una Carrera con Estabilidad y Crecimiento">
         <span class="home-card-icon" aria-hidden="true">🚚</span>
         <span class="home-card-body">
           <span class="home-card-category">Distribución</span>
-          <strong>Chofer Repartidor en Coca-Cola FEMSA</strong>
+          <strong>Conductor Distribuidor: Una Carrera con Estabilidad y Crecimiento</strong>
           <span class="home-card-link">Ver vacante →</span>
         </span>
       </a>
 
-      <a class="home-action-card" href="/empresas-publicas#starbucks" aria-label="Ver vacante Ayudante de Panadería en Starbucks">
-        <span class="home-card-icon" aria-hidden="true">☕</span>
+      <a class="home-action-card" href="/empresas-publicas/ayudante-panaderia" aria-label="Ver Ayudante de Panadería: Oportunidad para Crecer en el Mundo de la Panificación">
+        <span class="home-card-icon" aria-hidden="true">🥖</span>
         <span class="home-card-body">
           <span class="home-card-category">Alimentos</span>
-          <strong>Ayudante de Panadería en Starbucks</strong>
+          <strong>Ayudante de Panadería: Oportunidad para Crecer en el Mundo de la Panificación</strong>
           <span class="home-card-link">Ver vacante →</span>
         </span>
       </a>
 
-      <a class="home-action-card" href="/empresas-publicas#marriott" aria-label="Ver vacante Auxiliar de Limpieza en Marriott Hotels">
+      <a class="home-action-card" href="/empresas-publicas/auxiliar-limpieza-hoteleria" aria-label="Ver Auxiliar de Limpieza en Hotelería: Oportunidad para Formar Parte de un Equipo Profesional">
         <span class="home-card-icon" aria-hidden="true">🧹</span>
         <span class="home-card-body">
           <span class="home-card-category">Hospitalidad</span>
-          <strong>Auxiliar de Limpieza en Marriott Hotels</strong>
+          <strong>Auxiliar de Limpieza en Hotelería: Oportunidad para Formar Parte de un Equipo Profesional</strong>
           <span class="home-card-link">Ver vacante →</span>
         </span>
       </a>
 
-      <a class="home-action-card" href="/empresas-publicas#bimbo" aria-label="Ver vacante Empacador en Grupo Bimbo">
-        <span class="home-card-icon" aria-hidden="true">🥖</span>
+      <a class="home-action-card" href="/empresas-publicas/empacador-carrera-impacto" aria-label="Ver Construye una Carrera con Impacto">
+        <span class="home-card-icon" aria-hidden="true">📦</span>
         <span class="home-card-body">
           <span class="home-card-category">Manufactura</span>
-          <strong>Empacador en Grupo Bimbo</strong>
+          <strong>Construye una Carrera con Impacto</strong>
           <span class="home-card-link">Ver vacante →</span>
         </span>
       </a>
