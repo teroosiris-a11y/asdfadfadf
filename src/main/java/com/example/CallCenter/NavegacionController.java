@@ -58,13 +58,45 @@ public class NavegacionController {
 
     @GetMapping("/convocatorias")
     public String convocatorias(Model model) {
-        cargarPaginaPublica(model, "Convocatorias", "👔", "Encuentra oportunidades y llamados importantes organizados para nuestros visitantes.");
+        cargarPaginaPublica(
+                model,
+                "Convocatorias",
+                "💼",
+                "Posiciones abiertas en empresas reales. Aplica directo.",
+                "Vacantes destacadas",
+                "Empleos disponibles ahora",
+                "Más Información ->",
+                List.of(
+                        item("🏭", "Logística", "Supervisor de Inventarios y Operaciones de Almacén: Impulsa tu Desarrollo Profesional", "/convocatorias/supervisor-inventarios-operaciones-almacen", "Imagen para Supervisor de Inventarios"),
+                        item("❄️", "Técnico", "¡Únete al Sector de la Climatización! Vacante para Técnico en Refrigeración y Aire Acondicionado", "/convocatorias/tecnico-refrigeracion-aire-acondicionado", "Imagen para Técnico en Refrigeración"),
+                        item("💰", "Finanzas", "Vacante Disponible: Gestor de Cobranza Telefónica y de Campo", "/convocatorias/gestor-cobranza-telefonica-campo", "Imagen para Gestor de Cobranza"),
+                        item("🔁", "Telecom", "Técnico Instalador de Redes y Telecomunicaciones", "/convocatorias/tecnico-instalador-redes-telecomunicaciones", "Imagen para Técnico Instalador"),
+                        item("👥", "RRHH", "Auxiliar de Recursos Humanos y Selección de Personal", "/convocatorias/auxiliar-recursos-humanos-seleccion", "Imagen para Recursos Humanos"),
+                        item("🖼️", "Diseño", "Diseñador Gráfico y Creador de Contenido Digital", "/convocatorias/disenador-grafico-contenido-digital", "Imagen para Diseño Gráfico")
+                )
+        );
         return "pagina_publica";
     }
 
     @GetMapping("/bonos")
     public String bonos(Model model) {
-        cargarPaginaPublica(model, "Bonos", "🤝", "Consulta beneficios, apoyos y novedades disponibles en un solo lugar.");
+        cargarPaginaPublica(
+                model,
+                "Bonos",
+                "🤝",
+                "Apoyos económicos gubernamentales a los que puedes acceder hoy.",
+                "Apoyos del gobierno",
+                "Bonos y programas sociales",
+                "Más Información ->",
+                List.of(
+                        item("🇲🇽", "Pensión", "Apoyo para Personas con Discapacidad Permanente: Conoce los Beneficios y Cómo Solicitarlo", "/bonos/apoyo-discapacidad-permanente", "Imagen para apoyo de discapacidad"),
+                        item("✚", "Salud", "Salud en Tu Comunidad: Atención Médica Más Cerca de las Familias 🏥❤", "/bonos/salud-en-tu-comunidad", "Imagen para salud comunitaria"),
+                        item("🧓", "Adultos mayores", "Apoyo para Personas Adultas Mayores: Beneficios, Requisitos y Cómo Realizar tu Registro 👵👴", "/bonos/adultos-mayores-registro", "Imagen para adultos mayores"),
+                        item("🍼", "Alimentación", "Nutrición y Apoyo para las Familias: Conoce el Programa de Leche Subsidiada 🥛", "/bonos/leche-subsidiada", "Imagen para leche subsidiada"),
+                        item("👨‍👩‍👧", "Seguro", "Protección y Apoyo para el Futuro de las Familias ✨", "/bonos/proteccion-familias", "Imagen para protección familiar"),
+                        item("🏢", "Vivienda", "Reconstruyendo Comunidades: Apoyo para la Recuperación de Zonas Afectadas 🏡", "/bonos/reconstruyendo-comunidades", "Imagen para reconstrucción de comunidades")
+                )
+        );
         return "pagina_publica";
     }
 
@@ -76,7 +108,23 @@ public class NavegacionController {
 
     @GetMapping("/empresas-publicas")
     public String empresasPublicas(Model model) {
-        cargarPaginaPublica(model, "Empresas", "🏭", "Espacio público para conocer empresas y futuras novedades del portal.");
+        cargarPaginaPublica(
+                model,
+                "Empresas",
+                "🏢",
+                "Trabaja con las marcas más grandes del país.",
+                "Grandes empleadores",
+                "Vacantes en empresas reconocidas",
+                "Más Información ->",
+                List.of(
+                        item("🏡", "Reconstrucción", "construir para Avanzar: Conoce el Programa Nacional de Reconstrucción 🏡✨", "/empresas-publicas/programa-nacional-reconstruccion", "Imagen para reconstrucción"),
+                        item("👮", "Seguridad", "Seguridad y Protección: Una Carrera con Propósito y Estabilidad 🛡️✨", "/empresas-publicas/seguridad-proteccion", "Imagen para seguridad"),
+                        item("🚚", "Distribución", "Conductor Distribuidor: Una Carrera con Estabilidad y Crecimiento", "/empresas-publicas/conductor-distribuidor", "Imagen para conductor distribuidor"),
+                        item("🥖", "Alimentos", "Ayudante de Panadería: Oportunidad para Crecer en el Mundo de la Panificación", "/empresas-publicas/ayudante-panaderia", "Imagen para panadería"),
+                        item("🧹", "Hospitalidad", "Auxiliar de Limpieza en Hotelería: Oportunidad para Formar Parte de un Equipo Profesional", "/empresas-publicas/auxiliar-limpieza-hoteleria", "Imagen para limpieza hotelera"),
+                        item("📦", "Manufactura", "Construye una Carrera con Impacto", "/empresas-publicas/empacador-carrera-impacto", "Imagen para manufactura")
+                )
+        );
         return "pagina_publica";
     }
 
@@ -147,6 +195,31 @@ public class NavegacionController {
         model.addAttribute("titulo", titulo);
         model.addAttribute("icono", icono);
         model.addAttribute("descripcion", descripcion);
+    }
+
+    private void cargarPaginaPublica(Model model,
+                                     String titulo,
+                                     String icono,
+                                     String descripcion,
+                                     String etiqueta,
+                                     String subtitulo,
+                                     String textoBoton,
+                                     List<Map<String, String>> publicaciones) {
+        cargarPaginaPublica(model, titulo, icono, descripcion);
+        model.addAttribute("etiqueta", etiqueta);
+        model.addAttribute("subtitulo", subtitulo);
+        model.addAttribute("textoBoton", textoBoton);
+        model.addAttribute("publicaciones", publicaciones);
+    }
+
+    private Map<String, String> item(String icono, String categoria, String titulo, String url, String imagenAlt) {
+        return Map.of(
+                "icono", icono,
+                "categoria", categoria,
+                "titulo", titulo,
+                "url", url,
+                "imagenAlt", imagenAlt
+        );
     }
 
     // ─── Dashboard por rol ────────────────────────────────────────────────────
