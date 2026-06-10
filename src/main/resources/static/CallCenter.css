@@ -1517,3 +1517,203 @@ button i{
     text-align:center;
   }
 }
+
+/* Listados públicos de convocatorias, bonos y empresas */
+.public-list-page{
+  background:#ffffff;
+}
+.public-list-page .public-topbar{
+  background:#092638;
+  border-bottom:2px solid var(--color-secundario);
+}
+.public-list-page .public-menu a{
+  border:1px solid rgba(255,255,255,.55);
+  background-color:var(--color-primario);
+  color:var(--color-fondo);
+  font-weight:bold;
+}
+.public-list-page .public-menu a.active,
+.public-list-page .public-menu a:hover,
+.public-list-page .public-menu a:focus{
+  background:#0b5f78;
+  border-color:#7dd3fc;
+  color:#ffffff;
+  text-decoration:none;
+}
+.category-main{
+  width:100%;
+  padding:26px 0 40px;
+  background:linear-gradient(180deg, #eaf6fc 0, #ffffff 330px);
+}
+.category-heading{
+  width:min(1180px, 94%);
+  margin:0 auto 18px;
+  padding:28px 30px;
+  border:1px solid #d8e9f5;
+  border-radius:22px;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 16px 35px rgba(15, 76, 92, .10);
+}
+.category-kicker{
+  display:block;
+  margin-bottom:8px;
+  color:#0f6f8f;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.category-heading h1{
+  margin:0 0 8px;
+  color:#0f172a;
+  font-size:clamp(28px, 4vw, 42px);
+  line-height:1.05;
+}
+.category-heading p{
+  max-width:760px;
+  margin:0;
+  color:#334155;
+  font-size:18px;
+  line-height:1.55;
+}
+.category-sponsored{
+  width:min(980px, 92%);
+  margin:0 auto 24px;
+  text-align:center;
+  color:#334155;
+}
+.category-sponsored-top{
+  padding-top:4px;
+}
+.category-sponsored p{
+  margin:0 0 10px;
+  font-size:17px;
+}
+.category-ad-placeholder{
+  min-height:118px;
+  border:1px dashed #b7d8e8;
+  border-radius:16px;
+  background:rgba(255,255,255,.52);
+}
+.category-list{
+  width:min(1180px, 94%);
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:34px;
+}
+.category-row-card{
+  display:grid;
+  grid-template-columns:minmax(260px, 475px) minmax(0, 1fr);
+  gap:26px;
+  align-items:center;
+  padding:0 0 4px;
+}
+.category-image-slot{
+  min-height:230px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border:2px dashed #93c5df;
+  border-radius:18px;
+  background:linear-gradient(135deg, #dff1fb 0%, #f8fbff 100%);
+  color:#0f4c5c;
+  text-align:center;
+  text-decoration:none;
+  box-shadow:0 12px 28px rgba(15, 76, 92, .10);
+}
+.category-image-slot span{
+  font-size:58px;
+  line-height:1;
+}
+.category-image-slot small{
+  color:#0b5f78;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.category-row-copy{
+  padding:10px 0;
+}
+.category-row-tag{
+  display:inline-block;
+  margin-bottom:8px;
+  color:#0f6f8f;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.category-row-copy h2{
+  margin:0 0 12px;
+  color:#020617;
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:clamp(27px, 3vw, 36px);
+  line-height:1.08;
+}
+.category-row-copy h2 a{
+  color:inherit;
+  text-decoration:none;
+}
+.category-row-copy h2 a:hover,
+.category-row-copy h2 a:focus{
+  color:#0f6f8f;
+  text-decoration:underline;
+}
+.category-row-copy p{
+  max-width:890px;
+  margin:0 0 26px;
+  color:#2f3e5c;
+  font-size:17px;
+  line-height:1.55;
+}
+.category-info-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:38px;
+  padding:8px 22px;
+  border-radius:999px;
+  background:#000000;
+  color:#ffffff;
+  font-size:16px;
+  font-weight:700;
+  text-decoration:none;
+  transition:background .18s ease, transform .18s ease;
+}
+.category-info-button:hover,
+.category-info-button:focus{
+  background:#0f4c5c;
+  transform:translateY(-1px);
+  outline:none;
+}
+.category-sponsored-bottom{
+  margin-top:34px;
+  margin-bottom:0;
+}
+.public-list-page .public-footer{
+  border-top:4px solid #0f4c5c;
+}
+
+@media (max-width: 860px){
+  .category-heading{
+    padding:22px 18px;
+  }
+  .category-row-card{
+    grid-template-columns:1fr;
+    gap:16px;
+    padding-bottom:8px;
+  }
+  .category-image-slot{
+    min-height:210px;
+  }
+  .category-row-copy h2{
+    font-size:clamp(24px, 8vw, 32px);
+  }
+  .category-row-copy p{
+    font-size:16px;
+  }
+}
