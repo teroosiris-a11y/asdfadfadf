@@ -45,6 +45,7 @@ public class AgenteRepository implements AgenteDAO {
                 agente.getUsuario_agente(),
                 agente.getContrasenia_agente(),
                 agente.getId_empresa());
+        crearUsuarioSistemaAgente(agente);
     }
 
     @Override
@@ -68,7 +69,19 @@ public class AgenteRepository implements AgenteDAO {
 
     @Override
     public void eliminarAgente(int id_agente) {
+        jdbcTemplate.update("DELETE FROM usuarios_sistema WHERE id_agente = ?", id_agente);
         jdbcTemplate.update("DELETE FROM agentes WHERE id_agente = ?", id_agente);
+    }
+
+    private void crearUsuarioSistemaAgente(Agente agente) {
+        jdbcTemplate.update("""
+                INSERT INTO usuarios_sistema (usuario, contrasenia, rol_id, id_empresa, id_agente, estado)
+                SELECT ?, ?, id, ?, ?, 'activo' FROM roles WHERE LOWER(nombre) = 'agente'
+                """,
+                agente.getUsuario_agente(),
+                agente.getContrasenia_agente(),
+                agente.getId_empresa(),
+                agente.getId_agente());
     }
 
     private void cargarAgentesIniciales() {

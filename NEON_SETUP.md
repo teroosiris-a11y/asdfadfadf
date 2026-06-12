@@ -63,3 +63,24 @@ El rastro que termina en `HikariDataSource.getConnection` y `DatabasePopulatorUt
 - La base Neon está suspendida, el host es incorrecto o falta `sslmode=require`.
 
 Para descartar problemas de conexión externa, primero ejecuta con el perfil `local`.
+
+## Tablas de acceso y roles
+
+Además de las tablas operativas (`empresas`, `agentes`, `tipificaciones` y `llamadas`), el archivo `src/main/resources/schema.sql` crea estas tablas de autenticación en Neon cada vez que arranca la aplicación:
+
+| Tabla | Propósito |
+| --- | --- |
+| `roles` | Catálogo de niveles del sistema: `superadmin`, `empresa` y `agente`. |
+| `usuarios_sistema` | Usuarios que pueden iniciar sesión, con su rol y vínculo opcional a `empresas` o `agentes`. |
+
+La clase `DatosAccesoIniciales` carga automáticamente estos accesos base si no existen:
+
+| Usuario | Contraseña | Rol |
+| --- | --- | --- |
+| `Sa01` | `Sa01` | `superadmin` |
+| `Emp01` | `Emp01` | `empresa` |
+| `Age01` | `Age01` | `agente` |
+| `empresa01` | `emp01` | `empresa` |
+| `agente01` | `age01` | `agente` |
+
+Cuando se registra una empresa nueva desde la aplicación, también se crea su usuario en `usuarios_sistema` con rol `empresa`. Cuando se crea un agente nuevo, también se crea su usuario con rol `agente`.

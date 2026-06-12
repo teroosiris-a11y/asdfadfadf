@@ -38,6 +38,7 @@ public class EmpresaRepository implements EmpresaDAO {
         empresa.setUsuario("empresa" + num);
         empresa.setContrasenia("emp" + num);
         empresa.setEstado(estado);
+        crearUsuarioSistemaEmpresa(empresa);
     }
 
     @Override
@@ -71,11 +72,21 @@ public class EmpresaRepository implements EmpresaDAO {
         empresa.setUsuario(actual.getUsuario());
         empresa.setContrasenia(actual.getContrasenia());
         empresa.setEstado(estado);
+        jdbcTemplate.update("""
+                UPDATE usuarios_sistema
+                SET estado = ?
+                WHERE id_empresa = ? AND rol_id = (SELECT id FROM roles WHERE LOWER(nombre) = 'empresa')
+                """, estado, empresa.getId());
     }
 
     @Override
     public void eliminarEmpresa(int id) {
         jdbcTemplate.update("UPDATE empresas SET estado = 'borrado' WHERE id = ?", id);
+        jdbcTemplate.update("""
+                UPDATE usuarios_sistema
+                SET estado = 'borrado'
+                WHERE id_empresa = ? AND rol_id = (SELECT id FROM roles WHERE LOWER(nombre) = 'empresa')
+                """, id);
     }
 
     @Override
@@ -85,6 +96,17 @@ public class EmpresaRepository implements EmpresaDAO {
                 WHERE LOWER(usuario) = LOWER(?) AND contrasenia = ?
                 """, this::mapEmpresa, usuario, contrasenia);
         return empresas.stream().findFirst().orElse(null);
+    }
+
+    private void crearUsuarioSistemaEmpresa(Empresa empresa) {
+        jdbcTemplate.update("""
+                INSERT INTO usuarios_sistema (usuario, contrasenia, rol_id, id_empresa, estado)
+                SELECT ?, ?, id, ?, ? FROM roles WHERE LOWER(nombre) = 'empresa'
+                """,
+                empresa.getUsuario(),
+                empresa.getContrasenia(),
+                empresa.getId(),
+                empresa.getEstado());
     }
 
     private void cargarEmpresaInicial() {
