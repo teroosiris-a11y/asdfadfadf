@@ -36,3 +36,30 @@ export DATABASE_PASSWORD="TU_PASSWORD_DE_NEON"
 ```
 
 Al iniciar, Spring ejecuta `src/main/resources/schema.sql` para crear las tablas si no existen. Los repositorios cargan datos demo solo cuando cada tabla está vacía.
+
+## Ejecutar en local sin Neon
+
+Si solo quieres probar la aplicación en tu equipo y no tienes configuradas las variables de Neon, usa el perfil `local`. Este perfil usa una base H2 en memoria y evita errores de conexión externa.
+
+### PowerShell
+
+```powershell
+.\mvnw.cmd spring-boot:run -D"spring-boot.run.profiles=local"
+```
+
+### Bash / Git Bash
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+```
+
+## Por qué aparece el error de Hikari
+
+El rastro que termina en `HikariDataSource.getConnection` y `DatabasePopulatorUtils.execute` normalmente significa que Spring intentó abrir la conexión para ejecutar `schema.sql`, pero no pudo conectarse a la base de datos. Las causas más comunes son:
+
+- No configuraste `DATABASE_URL`, `DATABASE_USERNAME` o `DATABASE_PASSWORD`.
+- La URL no comienza con `jdbc:postgresql://`.
+- La contraseña tiene caracteres especiales y fue pegada mal en la terminal.
+- La base Neon está suspendida, el host es incorrecto o falta `sslmode=require`.
+
+Para descartar problemas de conexión externa, primero ejecuta con el perfil `local`.
