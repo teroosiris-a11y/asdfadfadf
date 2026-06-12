@@ -2,6 +2,8 @@ package com.example.CallCenter.Login;
 
 import com.example.CallCenter.Empresa.Empresa;
 import com.example.CallCenter.Empresa.EmpresaService;
+import com.example.CallCenter.auth.UsuarioSistema;
+import com.example.CallCenter.auth.UsuarioSistemaRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +14,11 @@ import jakarta.servlet.http.HttpSession;
 public class LoginController {
 
     private final EmpresaService empresaService;
+    private final UsuarioSistemaRepository usuarioSistemaRepository;
 
-    public LoginController(EmpresaService empresaService) {
+    public LoginController(EmpresaService empresaService, UsuarioSistemaRepository usuarioSistemaRepository) {
         this.empresaService = empresaService;
+        this.usuarioSistemaRepository = usuarioSistemaRepository;
     }
 
     @GetMapping
@@ -29,20 +33,22 @@ public class LoginController {
             HttpSession session,
             Model model) {
 
-        if ("Sa01".equals(usuario) && "Sa01".equals(contrasena)) {
-            session.setAttribute("rol", "superadmin");
-            session.setAttribute("usuario", usuario);
-            return "redirect:/dashboard/superadmin";
-        }
-        if ("Emp01".equals(usuario) && "Emp01".equals(contrasena)) {
-            session.setAttribute("rol", "empresa");
-            session.setAttribute("usuario", usuario);
-            return "redirect:/dashboard/empresa";
-        }
-        if ("Age01".equals(usuario) && "Age01".equals(contrasena)) {
-            session.setAttribute("rol", "agente");
-            session.setAttribute("usuario", usuario);
-            return "redirect:/dashboard/agente";
+        UsuarioSistema usuarioSistema = usuarioSistemaRepository.obtenerPorCredenciales(usuario, contrasena);
+        if (usuarioSistema != null) {
+            String estado = usuarioSistema.getEstado() == null ? "activo" : usuarioSistema.getEstado().toLowerCase();
+            if ("activo".equals(estado)) {
+                session.setAttribute("rol", usuarioSistema.getRol());
+                session.setAttribute("usuario", usuarioSistema.getUsuario());
+                if (usuarioSistema.getIdEmpresa() != null) {
+                    session.setAttribute("id_empresa", usuarioSistema.getIdEmpresa());
+                }
+                if (usuarioSistema.getIdAgente() != null) {
+                    session.setAttribute("id_agente", usuarioSistema.getIdAgente());
+                }
+                return "redirect:/dashboard/" + usuarioSistema.getRol();
+            }
+            model.addAttribute("estadoBloqueado", "Tu usuario no está activo. Contacta al superadmin.");
+            return "login";
         }
 
         Empresa empresa = empresaService.obtenerPorCredenciales(usuario, contrasena);
