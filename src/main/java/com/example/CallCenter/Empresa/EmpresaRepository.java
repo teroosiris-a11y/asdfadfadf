@@ -1,75 +1,116 @@
 package com.example.CallCenter.Empresa;
 
-import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class EmpresaRepository implements EmpresaDAO {
 
-    private final List<Empresa> listaSimulada = new ArrayList<>();
-    private int contadorId = 2;
+    private final JdbcTemplate jdbcTemplate;
 
-    public EmpresaRepository() {
-        Empresa demo = new Empresa(1, "Empresa Demo", "900000001", "demo@empresa.com");
-        demo.setUsuario("empresa01");
-        demo.setContrasenia("emp01");
-        demo.setEstado("activo");
-        listaSimulada.add(demo);
+    public EmpresaRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+        cargarEmpresaInicial();
     }
 
     @Override
     public void registrarEmpresa(Empresa empresa) {
-        empresa.setId(contadorId);
-        String num = String.format("%02d", contadorId);
+        int nuevoId = obtenerSiguienteId();
+        String num = String.format("%02d", nuevoId);
+        String estado = tieneTexto(empresa.getEstado()) ? empresa.getEstado() : "activo";
+
+        jdbcTemplate.update("""
+                INSERT INTO empresas (id, nombre, telefono, correo, usuario, contrasenia, estado)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                nuevoId,
+                empresa.getNombre(),
+                empresa.getTelefono(),
+                empresa.getCorreo(),
+                "empresa" + num,
+                "emp" + num,
+                estado);
+        empresa.setId(nuevoId);
         empresa.setUsuario("empresa" + num);
         empresa.setContrasenia("emp" + num);
-        if (empresa.getEstado() == null || empresa.getEstado().trim().isEmpty()) {
-            empresa.setEstado("activo");
-        }
-        contadorId++;
-        listaSimulada.add(empresa);
+        empresa.setEstado(estado);
     }
 
     @Override
-    public List<Empresa> listarEmpresas() { return listaSimulada; }
+    public List<Empresa> listarEmpresas() {
+        return jdbcTemplate.query("SELECT * FROM empresas ORDER BY id", this::mapEmpresa);
+    }
 
     @Override
     public Empresa obtenerEmpresaPorId(int id) {
-        return listaSimulada.stream().filter(e -> e.getId() == id).findFirst().orElse(null);
+        List<Empresa> empresas = jdbcTemplate.query("SELECT * FROM empresas WHERE id = ?", this::mapEmpresa, id);
+        return empresas.stream().findFirst().orElse(null);
     }
 
     @Override
     public void actualizarEmpresa(Empresa empresa) {
-        for (int i = 0; i < listaSimulada.size(); i++) {
-            Empresa actual = listaSimulada.get(i);
-            if (actual.getId() == empresa.getId()) {
-                empresa.setUsuario(actual.getUsuario());
-                empresa.setContrasenia(actual.getContrasenia());
-                if (empresa.getEstado() == null || empresa.getEstado().trim().isEmpty()) {
-                    empresa.setEstado(actual.getEstado());
-                }
-                listaSimulada.set(i, empresa);
-                return;
-            }
+        Empresa actual = obtenerEmpresaPorId(empresa.getId());
+        if (actual == null) {
+            return;
         }
+        String estado = tieneTexto(empresa.getEstado()) ? empresa.getEstado() : actual.getEstado();
+        jdbcTemplate.update("""
+                UPDATE empresas
+                SET nombre = ?, telefono = ?, correo = ?, estado = ?
+                WHERE id = ?
+                """,
+                empresa.getNombre(),
+                empresa.getTelefono(),
+                empresa.getCorreo(),
+                estado,
+                empresa.getId());
+        empresa.setUsuario(actual.getUsuario());
+        empresa.setContrasenia(actual.getContrasenia());
+        empresa.setEstado(estado);
     }
 
     @Override
     public void eliminarEmpresa(int id) {
-        Empresa empresa = obtenerEmpresaPorId(id);
-        if (empresa != null) {
-            empresa.setEstado("borrado");
-        }
+        jdbcTemplate.update("UPDATE empresas SET estado = 'borrado' WHERE id = ?", id);
     }
 
     @Override
     public Empresa obtenerPorCredenciales(String usuario, String contrasenia) {
-        return listaSimulada.stream()
-                .filter(e -> usuario.equalsIgnoreCase(e.getUsuario()) && contrasenia.equals(e.getContrasenia()))
-                .findFirst()
-                .orElse(null);
+        List<Empresa> empresas = jdbcTemplate.query("""
+                SELECT * FROM empresas
+                WHERE LOWER(usuario) = LOWER(?) AND contrasenia = ?
+                """, this::mapEmpresa, usuario, contrasenia);
+        return empresas.stream().findFirst().orElse(null);
+    }
+
+    private void cargarEmpresaInicial() {
+        Integer total = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM empresas", Integer.class);
+        if (total != null && total == 0) {
+            jdbcTemplate.update("""
+                    INSERT INTO empresas (id, nombre, telefono, correo, usuario, contrasenia, estado)
+                    VALUES (1, 'Empresa Demo', '900000001', 'demo@empresa.com', 'empresa01', 'emp01', 'activo')
+                    """);
+        }
+    }
+
+    private int obtenerSiguienteId() {
+        Integer siguiente = jdbcTemplate.queryForObject("SELECT COALESCE(MAX(id), 0) + 1 FROM empresas", Integer.class);
+        return siguiente == null ? 1 : siguiente;
+    }
+
+    private Empresa mapEmpresa(ResultSet rs, int rowNum) throws SQLException {
+        Empresa empresa = new Empresa(rs.getInt("id"), rs.getString("nombre"), rs.getString("telefono"), rs.getString("correo"));
+        empresa.setUsuario(rs.getString("usuario"));
+        empresa.setContrasenia(rs.getString("contrasenia"));
+        empresa.setEstado(rs.getString("estado"));
+        return empresa;
+    }
+
+    private boolean tieneTexto(String valor) {
+        return valor != null && !valor.trim().isEmpty();
     }
 }
-
