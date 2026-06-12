@@ -4,35 +4,67 @@ La aplicación usa Spring JDBC y lee la conexión desde variables de entorno par
 
 ## Variables necesarias
 
-Configura estas variables en tu terminal local o en el panel de variables de entorno de tu hosting:
+La forma más sencilla es crear un archivo `.env` en la raíz del proyecto y pegar ahí la cadena JDBC que Neon muestra para Java.
 
-```bash
-export DATABASE_URL="jdbc:postgresql://TU_HOST_NEON/neondb?sslmode=require"
-export DATABASE_USERNAME="neondb_owner"
-export DATABASE_PASSWORD="TU_PASSWORD_NEON"
+1. Copia `.env.example` como `.env`.
+2. Pega tu cadena JDBC completa en `DATABASE_URL`.
+3. No necesitas configurar `DATABASE_USERNAME` ni `DATABASE_PASSWORD` si la URL ya trae `user=` y `password=`.
+4. Ejecuta Maven normalmente.
+
+Ejemplo de `.env`:
+
+```properties
+DATABASE_URL=jdbc:postgresql://TU_HOST_NEON/neondb?user=neondb_owner&password=TU_PASSWORD_NEON&sslmode=require&channelBinding=require
 ```
 
-Neon suele mostrar el string como `postgresql://usuario:password@host/db?sslmode=require`. Para Spring Boot:
-
-1. Agrega `jdbc:` al inicio de la URL.
-2. Quita usuario y contraseña de la URL.
-3. Coloca el usuario en `DATABASE_USERNAME`.
-4. Coloca la contraseña en `DATABASE_PASSWORD`.
+> El archivo `.env` real está ignorado por Git. No subas credenciales reales al repositorio.
 
 ## Ejemplo con Neon
 
+### Opción recomendada: archivo `.env`
+
+En la raíz del proyecto, crea o edita `.env`:
+
+```properties
+DATABASE_URL=jdbc:postgresql://ep-gentle-term-at3659kk-pooler.c-9.us-east-1.aws.neon.tech/neondb?user=neondb_owner&password=TU_PASSWORD_DE_NEON&sslmode=require&channelBinding=require
+```
+
+Después ejecuta:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+### Alternativa: variables de entorno en PowerShell / Windows
+
+En PowerShell las variables de entorno deben empezar con `$env:`. Si escribes `DATABASE_URL="..."`, Spring no recibe la variable y deja el texto literal `${DATABASE_URL}`.
+
+```powershell
+$env:DATABASE_URL="jdbc:postgresql://ep-gentle-term-at3659kk-pooler.c-9.us-east-1.aws.neon.tech/neondb?user=neondb_owner&password=TU_PASSWORD_DE_NEON&sslmode=require&channelBinding=require"
+.\mvnw.cmd spring-boot:run
+```
+
+### Alternativa: variables de entorno en Bash / Git Bash / Linux / macOS
+
 ```bash
-export DATABASE_URL="jdbc:postgresql://ep-gentle-term-at3659kk.c-9.us-east-1.aws.neon.tech/neondb?sslmode=require"
-export DATABASE_USERNAME="neondb_owner"
-export DATABASE_PASSWORD="TU_PASSWORD_DE_NEON"
+export DATABASE_URL="jdbc:postgresql://ep-gentle-term-at3659kk-pooler.c-9.us-east-1.aws.neon.tech/neondb?user=neondb_owner&password=TU_PASSWORD_DE_NEON&sslmode=require&channelBinding=require"
+./mvnw spring-boot:run
 ```
 
 > No subas credenciales reales a Git. Si compartiste la contraseña, regénérala en Neon antes de usarla en producción.
 
 ## Ejecutar la aplicación
 
+Después de configurar las variables de entorno en la misma terminal, ejecuta:
+
 ```bash
 ./mvnw spring-boot:run
+```
+
+En Windows PowerShell usa:
+
+```powershell
+.\mvnw.cmd spring-boot:run
 ```
 
 Al iniciar, Spring ejecuta `src/main/resources/schema.sql` para crear las tablas si no existen. Los repositorios cargan datos demo solo cuando cada tabla está vacía.
@@ -57,8 +89,10 @@ Si solo quieres probar la aplicación en tu equipo y no tienes configuradas las 
 
 El rastro que termina en `HikariDataSource.getConnection` y `DatabasePopulatorUtils.execute` normalmente significa que Spring intentó abrir la conexión para ejecutar `schema.sql`, pero no pudo conectarse a la base de datos. Las causas más comunes son:
 
-- No configuraste `DATABASE_URL`, `DATABASE_USERNAME` o `DATABASE_PASSWORD`.
+- No configuraste `DATABASE_URL` en `.env` o en la misma terminal donde ejecutas Maven.
+- En PowerShell usaste sintaxis de Bash (`DATABASE_URL="..."` o `export ...`) en lugar de `$env:DATABASE_URL="..."`.
 - La URL no comienza con `jdbc:postgresql://`.
+- Tu `DATABASE_URL` no se cargó desde `.env` o no quedó como variable de entorno de la misma terminal.
 - La contraseña tiene caracteres especiales y fue pegada mal en la terminal.
 - La base Neon está suspendida, el host es incorrecto o falta `sslmode=require`.
 
